@@ -1,0 +1,1 @@
+# using this pipeline we will call all the componenets of the model
