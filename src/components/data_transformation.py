@@ -1,4 +1,5 @@
 # data transformation - after ingestion we will transfer the data.
+# FOR EVERY COMPONENT WE CREATE A CONFIG FILE
 
 import sys
 import os

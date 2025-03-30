@@ -2,6 +2,8 @@
 # OPERATIONS THAT WILL BE DONE IN THIS FILE
 # 1) While reading the data will be divided into training and testing data sets.
 # 2) Creating validation data and so on...
+# FOR EVERY COMPONENT WE CREATE A CONFIG FILE
+
 
 import os
 import sys
@@ -14,6 +16,8 @@ from sklearn.model_selection import train_test_split
 from dataclasses import dataclass   #used to create class variables
 
 from src.components.data_transformation import DataTransformation, DataTransformationConfig
+
+from src.components.model_trainer import modelTrainer, modelTrainerConfig
 
 
 @dataclass
@@ -58,5 +62,9 @@ if __name__ == "__main__":
     train_data, test_data =  obj.initiate_data_ingestion()
 
 
-data_transformation = DataTransformation()
-data_transformation.initiate_data_tranformation(train_data, test_data)
+    data_transformation = DataTransformation()
+    train_arr, test_arr, _ = data_transformation.initiate_data_tranformation(train_data, test_data)
+
+    modeltrainer = modelTrainer()
+
+    print(modeltrainer.initiate_model_trainer(train_arr, test_arr))
