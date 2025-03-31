@@ -8,11 +8,7 @@ import pandas as pd
 
 # However, pickle cannot save some complex objects like:
 
-# Lambda functions (lambda x: x + 1)
-
-# Nested functions (functions inside functions)
-
-# Custom-defined objects with certain decorators
+# Lambda functions, Nested functions (functions inside functions), Custom-defined objects with certain decorators
 
 # dill is an improved version of pickle that supports these complex objects.
 import dill
@@ -77,5 +73,12 @@ def evaluate_model(X_train, y_train, X_test, y_test, models, param):
         return report
 
 
+    except Exception as e:
+        raise CustomException(e, sys)
+    
+def load_object(file_path):
+    try:
+        with open(file_path, 'rb') as file_obj:
+            return dill.load(file_obj)
     except Exception as e:
         raise CustomException(e, sys)
