@@ -12,7 +12,7 @@ class PredictPipeline:
     def predict(self, features):
         try:
             model_path = os.path.join('artifacts', 'model.pkl')
-            preprocessor_path = 'artifacts\preprocessor.pk1'
+            preprocessor_path = os.path.join('artifacts', 'preprocessor.pk1')
 
             # load_object() retrieves and loads these saved objects.
             model = load_object(file_path=model_path)
