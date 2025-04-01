@@ -1,1 +1,15 @@
-<h1>Welcome to the homepage</h1>
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='indexStyling.css') }}">
+</head>
+
+<body>
+    <div class="intro">
+        <h1>Welcome to the Student Exam Performance Indicator!</h1>
+        <p>This application predicts the performance of students based on various factors like gender, ethnicity, education level, and more. Enter your details and get predictions for your exam performance!</p>
+
+        <!-- Button to redirect to predict_data page -->
+        <a href="{{ url_for('predict_datapoint') }}">
+            <button class="btn btn-primary">Go to Prediction Page</button>
+        </a>
+    </div>
+</body>
